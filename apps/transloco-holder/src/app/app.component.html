@@ -1,0 +1,14 @@
+<section>
+  <h1>This should tell me where I am</h1>
+  <button (click)="change('en')">English</button>
+  <button (click)="change('es')">Spanish</button>
+
+  <ng-container *transloco="let t">
+    <p>Root: {{ t('gps') }}</p>
+  </ng-container>
+  <div style="display: flex; flex-direction: column">
+    <transloco-with-libs-b></transloco-with-libs-b>
+  </div>
+
+  <router-outlet></router-outlet>
+</section>

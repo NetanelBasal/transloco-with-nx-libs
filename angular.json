@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "projects": {
+    "transloco-holder": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/transloco-holder",
+      "sourceRoot": "apps/transloco-holder/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/transloco-holder",
+            "index": "apps/transloco-holder/src/index.html",
+            "main": "apps/transloco-holder/src/main.ts",
+            "polyfills": "apps/transloco-holder/src/polyfills.ts",
+            "tsConfig": "apps/transloco-holder/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/transloco-holder/src/favicon.ico",
+              "apps/transloco-holder/src/assets"
+            ],
+            "styles": ["apps/transloco-holder/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/transloco-holder/src/environments/environment.ts",
+                  "with": "apps/transloco-holder/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "transloco-holder:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "transloco-holder:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "transloco-holder:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/transloco-holder/tsconfig.app.json",
+              "apps/transloco-holder/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/transloco-holder/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/transloco-holder/jest.config.js",
+            "tsConfig": "apps/transloco-holder/tsconfig.spec.json",
+            "setupFile": "apps/transloco-holder/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "transloco-holder-e2e": {
+      "root": "apps/transloco-holder-e2e",
+      "sourceRoot": "apps/transloco-holder-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/transloco-holder-e2e/cypress.json",
+            "tsConfig": "apps/transloco-holder-e2e/tsconfig.e2e.json",
+            "devServerTarget": "transloco-holder:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "transloco-holder:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/transloco-holder-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/transloco-holder-e2e/**"]
+          }
+        }
+      }
+    },
+    "transloco-lib-a": {
+      "projectType": "library",
+      "root": "libs/transloco-lib-a",
+      "sourceRoot": "libs/transloco-lib-a/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-lib-a/tsconfig.lib.json",
+              "libs/transloco-lib-a/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-lib-a/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-lib-a/jest.config.js",
+            "tsConfig": "libs/transloco-lib-a/tsconfig.spec.json",
+            "setupFile": "libs/transloco-lib-a/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "transloco-lib-b": {
+      "projectType": "library",
+      "root": "libs/transloco-lib-b",
+      "sourceRoot": "libs/transloco-lib-b/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-lib-b/tsconfig.lib.json",
+              "libs/transloco-lib-b/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-lib-b/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-lib-b/jest.config.js",
+            "tsConfig": "libs/transloco-lib-b/tsconfig.spec.json",
+            "setupFile": "libs/transloco-lib-b/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "transloco-holder"
+}

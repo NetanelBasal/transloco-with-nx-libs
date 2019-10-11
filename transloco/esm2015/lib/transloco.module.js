@@ -1,0 +1,44 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { NgModule } from '@angular/core';
+import { TranslocoLoaderComponent } from './loader-component.component';
+import { TranslocoDirective } from './transloco.directive';
+import { DefaultTranspiler, TRANSLOCO_TRANSPILER } from './transloco.transpiler';
+import { TranslocoPipe } from './transloco.pipe';
+import { DefaultHandler, TRANSLOCO_MISSING_HANDLER } from './transloco-missing-handler';
+import { DefaultInterceptor, TRANSLOCO_INTERCEPTOR } from './transloco.interceptor';
+import { DefaultFallbackStrategy, TRANSLOCO_FALLBACK_STRATEGY } from './transloco-fallback-strategy';
+import { TRANSLOCO_CONFIG } from './transloco.config';
+/** @type {?} */
+export const defaultProviders = [
+    {
+        provide: TRANSLOCO_TRANSPILER,
+        useClass: DefaultTranspiler
+    },
+    {
+        provide: TRANSLOCO_MISSING_HANDLER,
+        useClass: DefaultHandler
+    },
+    {
+        provide: TRANSLOCO_INTERCEPTOR,
+        useClass: DefaultInterceptor
+    },
+    {
+        provide: TRANSLOCO_FALLBACK_STRATEGY,
+        useClass: DefaultFallbackStrategy,
+        deps: [TRANSLOCO_CONFIG]
+    }
+];
+export class TranslocoModule {
+}
+TranslocoModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [TranslocoDirective, TranslocoPipe, TranslocoLoaderComponent],
+                providers: [defaultProviders],
+                exports: [TranslocoDirective, TranslocoPipe],
+                entryComponents: [TranslocoLoaderComponent]
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHJhbnNsb2NvLm1vZHVsZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BuZ25lYXQvdHJhbnNsb2NvLyIsInNvdXJjZXMiOlsibGliL3RyYW5zbG9jby5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDekMsT0FBTyxFQUFFLHdCQUF3QixFQUFFLE1BQU0sOEJBQThCLENBQUM7QUFDeEUsT0FBTyxFQUFFLGtCQUFrQixFQUFFLE1BQU0sdUJBQXVCLENBQUM7QUFDM0QsT0FBTyxFQUFFLGlCQUFpQixFQUFFLG9CQUFvQixFQUFFLE1BQU0sd0JBQXdCLENBQUM7QUFDakYsT0FBTyxFQUFFLGFBQWEsRUFBRSxNQUFNLGtCQUFrQixDQUFDO0FBQ2pELE9BQU8sRUFBRSxjQUFjLEVBQUUseUJBQXlCLEVBQUUsTUFBTSw2QkFBNkIsQ0FBQztBQUN4RixPQUFPLEVBQUUsa0JBQWtCLEVBQUUscUJBQXFCLEVBQUUsTUFBTSx5QkFBeUIsQ0FBQztBQUNwRixPQUFPLEVBQUUsdUJBQXVCLEVBQUUsMkJBQTJCLEVBQUUsTUFBTSwrQkFBK0IsQ0FBQztBQUNyRyxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxvQkFBb0IsQ0FBQzs7QUFFdEQsTUFBTSxPQUFPLGdCQUFnQixHQUFHO0lBQzlCO1FBQ0UsT0FBTyxFQUFFLG9CQUFvQjtRQUM3QixRQUFRLEVBQUUsaUJBQWlCO0tBQzVCO0lBQ0Q7UUFDRSxPQUFPLEVBQUUseUJBQXlCO1FBQ2xDLFFBQVEsRUFBRSxjQUFjO0tBQ3pCO0lBQ0Q7UUFDRSxPQUFPLEVBQUUscUJBQXFCO1FBQzlCLFFBQVEsRUFBRSxrQkFBa0I7S0FDN0I7SUFDRDtRQUNFLE9BQU8sRUFBRSwyQkFBMkI7UUFDcEMsUUFBUSxFQUFFLHVCQUF1QjtRQUNqQyxJQUFJLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQztLQUN6QjtDQUNGO0FBUUQsTUFBTSxPQUFPLGVBQWU7OztZQU4zQixRQUFRLFNBQUM7Z0JBQ1IsWUFBWSxFQUFFLENBQUMsa0JBQWtCLEVBQUUsYUFBYSxFQUFFLHdCQUF3QixDQUFDO2dCQUMzRSxTQUFTLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQztnQkFDN0IsT0FBTyxFQUFFLENBQUMsa0JBQWtCLEVBQUUsYUFBYSxDQUFDO2dCQUM1QyxlQUFlLEVBQUUsQ0FBQyx3QkFBd0IsQ0FBQzthQUM1QyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBUcmFuc2xvY29Mb2FkZXJDb21wb25lbnQgfSBmcm9tICcuL2xvYWRlci1jb21wb25lbnQuY29tcG9uZW50JztcbmltcG9ydCB7IFRyYW5zbG9jb0RpcmVjdGl2ZSB9IGZyb20gJy4vdHJhbnNsb2NvLmRpcmVjdGl2ZSc7XG5pbXBvcnQgeyBEZWZhdWx0VHJhbnNwaWxlciwgVFJBTlNMT0NPX1RSQU5TUElMRVIgfSBmcm9tICcuL3RyYW5zbG9jby50cmFuc3BpbGVyJztcbmltcG9ydCB7IFRyYW5zbG9jb1BpcGUgfSBmcm9tICcuL3RyYW5zbG9jby5waXBlJztcbmltcG9ydCB7IERlZmF1bHRIYW5kbGVyLCBUUkFOU0xPQ09fTUlTU0lOR19IQU5ETEVSIH0gZnJvbSAnLi90cmFuc2xvY28tbWlzc2luZy1oYW5kbGVyJztcbmltcG9ydCB7IERlZmF1bHRJbnRlcmNlcHRvciwgVFJBTlNMT0NPX0lOVEVSQ0VQVE9SIH0gZnJvbSAnLi90cmFuc2xvY28uaW50ZXJjZXB0b3InO1xuaW1wb3J0IHsgRGVmYXVsdEZhbGxiYWNrU3RyYXRlZ3ksIFRSQU5TTE9DT19GQUxMQkFDS19TVFJBVEVHWSB9IGZyb20gJy4vdHJhbnNsb2NvLWZhbGxiYWNrLXN0cmF0ZWd5JztcbmltcG9ydCB7IFRSQU5TTE9DT19DT05GSUcgfSBmcm9tICcuL3RyYW5zbG9jby5jb25maWcnO1xuXG5leHBvcnQgY29uc3QgZGVmYXVsdFByb3ZpZGVycyA9IFtcbiAge1xuICAgIHByb3ZpZGU6IFRSQU5TTE9DT19UUkFOU1BJTEVSLFxuICAgIHVzZUNsYXNzOiBEZWZhdWx0VHJhbnNwaWxlclxuICB9LFxuICB7XG4gICAgcHJvdmlkZTogVFJBTlNMT0NPX01JU1NJTkdfSEFORExFUixcbiAgICB1c2VDbGFzczogRGVmYXVsdEhhbmRsZXJcbiAgfSxcbiAge1xuICAgIHByb3ZpZGU6IFRSQU5TTE9DT19JTlRFUkNFUFRPUixcbiAgICB1c2VDbGFzczogRGVmYXVsdEludGVyY2VwdG9yXG4gIH0sXG4gIHtcbiAgICBwcm92aWRlOiBUUkFOU0xPQ09fRkFMTEJBQ0tfU1RSQVRFR1ksXG4gICAgdXNlQ2xhc3M6IERlZmF1bHRGYWxsYmFja1N0cmF0ZWd5LFxuICAgIGRlcHM6IFtUUkFOU0xPQ09fQ09ORklHXVxuICB9XG5dO1xuXG5ATmdNb2R1bGUoe1xuICBkZWNsYXJhdGlvbnM6IFtUcmFuc2xvY29EaXJlY3RpdmUsIFRyYW5zbG9jb1BpcGUsIFRyYW5zbG9jb0xvYWRlckNvbXBvbmVudF0sXG4gIHByb3ZpZGVyczogW2RlZmF1bHRQcm92aWRlcnNdLFxuICBleHBvcnRzOiBbVHJhbnNsb2NvRGlyZWN0aXZlLCBUcmFuc2xvY29QaXBlXSxcbiAgZW50cnlDb21wb25lbnRzOiBbVHJhbnNsb2NvTG9hZGVyQ29tcG9uZW50XVxufSlcbmV4cG9ydCBjbGFzcyBUcmFuc2xvY29Nb2R1bGUge31cbiJdfQ==

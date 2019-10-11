@@ -1,0 +1,24 @@
+{
+  "npmScope": "transloco-with-libs",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "transloco-holder-e2e": {
+      "tags": []
+    },
+    "transloco-holder": {
+      "tags": []
+    },
+    "transloco-lib-a": {
+      "tags": []
+    },
+    "transloco-lib-b": {
+      "tags": []
+    }
+  }
+}
