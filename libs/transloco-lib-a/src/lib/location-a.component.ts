@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
-export function en() {
-  return import('./i18n/en.json');
-}
-
-export function es() {
-  return import('./i18n/es.json');
-}
+import { scopeLoader } from '../../../../scoped-translations';
 
 @Component({
   selector: 'transloco-with-libs-a',
@@ -18,10 +12,10 @@ export function es() {
   providers: [
     {
       provide: TRANSLOCO_SCOPE,
-      useFactory: () => ({
+      useValue: {
         scope: 'compA',
-        loader: { en, es }
-      })
+        loader: scopeLoader((lang, root) => import(`./${root}/${lang}.json`))
+      }
     }
   ]
 })

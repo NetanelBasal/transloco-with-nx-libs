@@ -15,6 +15,8 @@ import { TranslocoLibBModule } from '@transloco-with-libs/transloco-lib-b';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routes';
+import { availableLangs } from 'scoped-translations';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,7 +31,7 @@ import { routes } from './app-routes';
       provide: TRANSLOCO_CONFIG,
       useValue: {
         reRenderOnLangChange: true,
-        availableLangs: ['en', 'es'],
+        availableLangs,
         defaultLang: 'en',
         prodMode: environment.production
       } as TranslocoConfig
