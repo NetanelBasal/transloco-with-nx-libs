@@ -37,7 +37,7 @@
     "@angular/platform-browser": "^8.2.9",
     "@angular/platform-browser-dynamic": "^8.2.9",
     "@angular/router": "^8.2.9",
-    "@ngneat/transloco": "^2.1.1",
+    "@ngneat/transloco": "^2.13.5",
     "@nrwl/angular": "8.6.0",
     "core-js": "^2.6.9",
     "rxjs": "~6.5.3",
