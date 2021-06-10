@@ -20,10 +20,14 @@
             "main": "apps/transloco-holder/src/main.ts",
             "polyfills": "apps/transloco-holder/src/polyfills.ts",
             "tsConfig": "apps/transloco-holder/tsconfig.app.json",
-            "aot": false,
             "assets": [
               "apps/transloco-holder/src/favicon.ico",
-              "apps/transloco-holder/src/assets"
+              "apps/transloco-holder/src/assets",
+              {
+                "input": "libs/transloco-ui-lib/src/lib/i18n",
+                "glob": "**/*",
+                "output": "assets/i18n/compUi"
+              }
             ],
             "styles": ["apps/transloco-holder/src/styles.scss"],
             "scripts": []
@@ -36,15 +40,6 @@
                   "with": "apps/transloco-holder/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -57,8 +52,17 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -68,8 +72,12 @@
           "configurations": {
             "production": {
               "browserTarget": "transloco-holder:build:production"
+            },
+            "development": {
+              "browserTarget": "transloco-holder:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -185,6 +193,33 @@
           "styleext": "scss"
         }
       }
+    },
+    "transloco-ui-lib": {
+      "projectType": "library",
+      "root": "libs/transloco-ui-lib",
+      "sourceRoot": "libs/transloco-ui-lib/src",
+      "prefix": "transloco-with-libs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/transloco-ui-lib/tsconfig.lib.json",
+              "libs/transloco-ui-lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/transloco-ui-lib/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/transloco-ui-lib/jest.config.js",
+            "tsConfig": "libs/transloco-ui-lib/tsconfig.spec.json",
+            "setupFile": "libs/transloco-ui-lib/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
