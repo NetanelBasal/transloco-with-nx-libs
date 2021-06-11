@@ -1,7 +1,8 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { TranslocoUiLibModule } from '@transloco-with-libs/transloco-ui-lib';
 import { LocationAComponent } from './location-a.component';
 
 const routes = [
@@ -11,7 +12,12 @@ const routes = [
   }
 ];
 @NgModule({
-  imports: [CommonModule, TranslocoModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    TranslocoModule,
+    RouterModule.forChild(routes),
+    TranslocoUiLibModule
+  ],
   providers: [],
   declarations: [LocationAComponent],
   exports: [LocationAComponent]

@@ -19,6 +19,9 @@
     },
     "transloco-lib-b": {
       "tags": []
+    },
+    "transloco-ui-lib": {
+      "tags": []
     }
   }
 }
